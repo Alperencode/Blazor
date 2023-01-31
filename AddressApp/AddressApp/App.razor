@@ -1,4 +1,11 @@
 ﻿<Router AppAssembly="@typeof(App).Assembly">
+
+    @* 
+        If router page found it executes 'Found' tag
+            - E.g: If user goes /index it will execute the that page
+        Else it executes the 'NotFound' tag
+            - Which is 'p' tag on MainLayout
+    *@
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
