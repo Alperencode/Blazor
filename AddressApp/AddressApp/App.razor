@@ -1,10 +1,9 @@
 ﻿<Router AppAssembly="@typeof(App).Assembly">
-
     @* 
-        If router page found it executes 'Found' tag
-            - E.g: If user goes /index it will execute the that page
+        If router page is found, it executes 'Found' tag
+            - E.g: If user goes /index it will execute the index page which is tagged in index.razor
         Else it executes the 'NotFound' tag
-            - Which is 'p' tag on MainLayout
+            - Which is 'p' tag with the text below
     *@
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
