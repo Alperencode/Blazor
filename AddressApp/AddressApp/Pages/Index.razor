@@ -1,20 +1,46 @@
 ﻿@page "/"
 @page "/index"
 
+<style>
+    table{
+        border: 1px;
+        border-collapse: collapse;
+        border-style: groove;
+    }
+
+    th, td{
+        border-style: groove;
+        padding: 10px;
+        min-width: 150px;
+        max-width: 150px;
+        text-align: center;
+        font-family: Cambria;
+        overflow: hidden;
+    }
+
+</style>
 
 <table>
-    @{
-        for(int i = 0; i<10; i++)
-        {
+
+    <thead>
+        <tr>
+            <th scope="col">User ID</th>
+            <th scope="col">Username</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Address</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @* This loop will be replaced with User List API *@
+        @for(int i = 0; i<10; i++){
             <tr>
-                <th>@(i+1). Row:</th>
-                @{
-                    for (int j = 0; j < 5; j++)
-                    {
-                        <td>@(j+1). Column</td>
-                    }
-                }
+                <td>@(i+1). ID</td>
+                <td>@(i+1). Username</td>
+                <td>@(i+1). E-mail</td>
+                <td>@(i + 1). Address</td>
             </tr>
         }
-    }
+    </tbody>
+
 </table>
