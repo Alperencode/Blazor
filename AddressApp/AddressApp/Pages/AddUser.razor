@@ -1,0 +1,65 @@
+﻿@page "/AddUser"
+
+<html>
+    <title>New Member Registration</title>
+    <link rel="stylesheet" href="css/AddUser.css">
+    <body>
+      <div class="testbox">
+        <form>
+          <div class="banner">
+            <h1>New User Registration</h1>
+          </div>
+          <div class="colums">
+            <div class="item">
+              <label for="fname"> First Name<span>*</span></label>
+              <input id="fname" type="text" name="fname" required/>
+            </div>
+            <div class="item">
+              <label for="lname"> Last Name<span>*</span></label>
+              <input id="lname" type="text" name="lname" required/>
+            </div>
+            <div class="item">
+              <label for="eaddress">Email Address<span>*</span></label>
+              <input id="eaddress" type="text"   name="eaddress" required/>
+            </div>
+            <div class="item">
+              <label for="address1">Address 1<span>*</span></label>
+              <input id="address1" type="text"   name="address1" required/>
+            </div>
+            <div class="item">
+              <label for="city">City<span>*</span></label>
+              <input id="city" type="text"   name="city" required/>
+            </div>
+            <div class="item">
+              <label for="state">State<span>*</span></label>
+              <input id="state" type="text" name="state" required />
+            </div>
+            <div class="item">
+              <label for="zip">Zip/Postal Code</label>
+              <input id="zip" type="text" name="zip"/>
+            </div>
+            <div class="item">
+              <label for="phone">Phone<span>*</span></label>
+              <input id="phone" type="tel"  name="phone" required/>
+            </div>
+          </div>
+          <div class="question">
+            <label>Gender</label>
+            <div class="question-answer">
+              <div>
+                <input type="radio" value="male" id="radio_1" name="type"/>
+                <label for="radio_1" class="radio"><span>Male</span></label>
+              </div>
+              <div>
+                <input  type="radio" value="female" id="radio_2" name="type"/>
+                <label for="radio_2" class="radio"><span>Female</span></label>
+              </div>
+            </div>
+          </div>
+          <div class="btn-block">
+                <NavLink href="/"> <button type="submit">  Submit  </button> </NavLink>
+          </div>
+        </form>
+      </div>
+    </body>
+</html>

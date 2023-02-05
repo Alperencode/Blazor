@@ -1,0 +1,36 @@
+﻿@page "/"
+@page "/Users"
+
+<html>
+    <title>Users</title>
+    <link rel="stylesheet" href="css/Users.css">
+    <meta charset="utf-8" />
+    <body>
+        <center>
+            <div id="UserTableDiv">
+              <table id="UserTable">
+                <thead>
+                    <tr>
+                        <th scope="col">User ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* This loop will be replaced with User List API *@
+                    @for(int i = 0; i<10; i++){
+                        <tr>
+                            <td>@(i+1). ID</td>
+                            <td>@(i+1). Username</td>
+                            <td>@(i+1). E-mail</td>
+                            <td>@(i + 1). Address</td>
+                        </tr>
+                    }
+                </tbody>
+              </table>
+            </div>
+        <NavLink href="/AddUser"> <button type="submit">  Add New User  </button> </NavLink>
+        </center>
+    </body>
+</html>
