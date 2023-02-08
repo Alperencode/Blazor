@@ -11,20 +11,28 @@
               <table id="UserTable">
                 <thead>
                     <tr>
-                        <th scope="col">User ID</th>
-                        <th scope="col">Username</th>
+                        <th scope="col" style="min-width:15px">ID</th>
+                        <th scope="col">Name </th>
                         <th scope="col">E-mail</th>
                         <th scope="col">Address</th>
+                        <th scope="col">City/State</th>
+                        <th scope="col">Zip Code</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Gender</th>
                     </tr>
                 </thead>
                 <tbody>
                     @* This loop will be replaced with User List API *@
                     @for(int i = 0; i<10; i++){
                         <tr>
-                            <td>@(i+1). ID</td>
-                            <td>@(i+1). Username</td>
+                            <td style="min-width:15px">@(i+1)</td>
+                            <td>@(i+1). Name</td>
                             <td>@(i+1). E-mail</td>
                             <td>@(i + 1). Address</td>
+                            <td>@(i + 1). City/State</td>
+                            <td>@(i + 1). Zip code</td>
+                            <td>@(i + 1). Phone Number</td>
+                            <td>@(i + 1). Gender</td>
                         </tr>
                     }
                 </tbody>

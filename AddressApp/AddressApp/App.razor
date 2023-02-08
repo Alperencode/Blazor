@@ -3,15 +3,12 @@
         If router page is found, it executes 'Found' tag
             - E.g: If user goes /index it will execute the index page which is tagged in index.razor
         Else it executes the 'NotFound' tag
-            - Which is 'p' tag with the text below
+            - Which redirects to 'Users' page as default in this case
     *@
     <Found Context="routeData">
         <RouteView RouteData="@routeData"/>
     </Found>
     <NotFound>
-        <PageTitle>Not found</PageTitle>
-        <LayoutView Layout="@typeof(MainLayout)">
-            <p role="alert">Sorry, there's nothing at this address.</p>
-        </LayoutView>
+        <AddressApp.Pages.Users></AddressApp.Pages.Users>
     </NotFound>
 </Router>
