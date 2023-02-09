@@ -1,65 +1,67 @@
 ﻿@page "/AddUser"
+@inject NavigationManager NavManager
+
 
 <html>
     <title>New Member Registration</title>
     <link rel="stylesheet" href="css/AddUser.css">
     <body>
       <div class="testbox">
-        <form>
+        <EditForm Model="NewUser" OnSubmit="Submit">
           <div class="banner">
             <h1>New User Registration</h1>
           </div>
           <div class="colums">
             <div class="item">
               <label for="fname"> First Name<span>*</span></label>
-              <input id="fname" type="text" name="fname" required/>
+              <InputText id="fname" @bind-Value="NewUser.FirstName" required/>
             </div>
             <div class="item">
               <label for="lname"> Last Name<span>*</span></label>
-              <input id="lname" type="text" name="lname" required/>
+              <InputText id="lname" @bind-Value="NewUser.LastName" required/>
             </div>
             <div class="item">
-              <label for="eaddress">Email Address<span>*</span></label>
-              <input id="eaddress" type="text"   name="eaddress" required/>
+              <label for="email">Email Address<span>*</span></label>
+              <InputText id="email" @bind-Value="NewUser.Email" required/>
             </div>
             <div class="item">
-              <label for="address1">Address 1<span>*</span></label>
-              <input id="address1" type="text"   name="address1" required/>
+              <label for="address">Address<span>*</span></label>
+                <InputTextArea id="address" @bind-Value="NewUser.Address" style="max-width: 350px; min-width:350px;" required />
             </div>
             <div class="item">
               <label for="city">City<span>*</span></label>
-              <input id="city" type="text"   name="city" required/>
+              <InputText id="city" @bind-Value="NewUser.City" required/>
             </div>
             <div class="item">
               <label for="state">State<span>*</span></label>
-              <input id="state" type="text" name="state" required />
+              <InputText id="state" @bind-Value="NewUser.State" required/>
             </div>
             <div class="item">
-              <label for="zip">Zip/Postal Code</label>
-              <input id="zip" type="text" name="zip"/>
+              <label for="zipcode">Zip/Postal Code</label>
+              <InputText id="zipcode" @bind-Value="NewUser.ZipCode"/>
             </div>
             <div class="item">
               <label for="phone">Phone<span>*</span></label>
-              <input id="phone" type="tel"  name="phone" required/>
-            </div>
-          </div>
-          <div class="question">
-            <label>Gender</label>
-            <div class="question-answer">
-              <div>
-                <input type="radio" value="male" id="radio_1" name="type"/>
-                <label for="radio_1" class="radio"><span>Male</span></label>
-              </div>
-              <div>
-                <input  type="radio" value="female" id="radio_2" name="type"/>
-                <label for="radio_2" class="radio"><span>Female</span></label>
-              </div>
+              <InputText id="phone" @bind-Value="NewUser.Phone" required/>
             </div>
           </div>
           <div class="btn-block">
-                <NavLink href="/Users"> <button type="submit">  Submit  </button> </NavLink>
+                <button type="submit"> Add New User </button>
+                <NavLink href="/Users"> <button>  Back to Users  </button> </NavLink>
           </div>
-        </form>
+        </EditForm>
       </div>
     </body>
 </html>
+
+
+@code{
+    public User NewUser = new();
+
+    public void Submit()
+    {
+        NewUser.ID = User.counter++ + 1;
+        Users.UserList.Add(NewUser);
+        NavManager.NavigateTo("/Users");
+    }
+}

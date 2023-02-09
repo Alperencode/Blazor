@@ -1,6 +1,15 @@
 ﻿@page "/"
 @page "/Users"
 
+<style>
+    textarea{
+        max-width: 250px;
+        min-width: 150px;
+        max-height: 250px;
+        min-height: 50px;
+    }
+</style>
+
 <html>
     <title>Users</title>
     <link rel="stylesheet" href="css/Users.css">
@@ -18,27 +27,47 @@
                         <th scope="col">City/State</th>
                         <th scope="col">Zip Code</th>
                         <th scope="col">Phone Number</th>
-                        <th scope="col">Gender</th>
                     </tr>
                 </thead>
                 <tbody>
                     @* This loop will be replaced with User List API *@
-                    @for(int i = 0; i<10; i++){
-                        <tr>
-                            <td style="min-width:15px">@(i+1)</td>
-                            <td>@(i+1). Name</td>
-                            <td>@(i+1). E-mail</td>
-                            <td>@(i + 1). Address</td>
-                            <td>@(i + 1). City/State</td>
-                            <td>@(i + 1). Zip code</td>
-                            <td>@(i + 1). Phone Number</td>
-                            <td>@(i + 1). Gender</td>
-                        </tr>
+                    @if (UserList != null)
+                    {
+                        @for (int i = 0; i < UserList.Count; i++)
+                        {
+                            <tr>
+                                @* ID *@
+                                <td style="min-width:15px">@(UserList[i].ID)</td>
+
+                                @* Name *@
+                                <td>@(UserList[i].FirstName + UserList[i].LastName)</td>
+
+                                @* Email *@
+                                <td>@(UserList[i].Email)</td>
+
+                                @* Address *@
+                                <td style="max-width: 250px;"><textarea>@(UserList[i].Address)</textarea></td>
+
+                                @* City/State *@
+                                <td>@(UserList[i].City)/@(UserList[i].State)</td>
+
+                                @* Zip Code *@
+                                <td>@(UserList[i].ZipCode!=null ? UserList[i].ZipCode : "Not Specified")</td>
+
+                                @* Phone *@
+                                <td>@(UserList[i].Phone)</td>
+                            </tr>
+                        }
                     }
                 </tbody>
               </table>
             </div>
-        <NavLink href="/AddUser"> <button type="submit">  Add New User  </button> </NavLink>
+        <NavLink href="/AddUser"> <button>  Add New User  </button> </NavLink>
         </center>
     </body>
 </html>
+
+@code{
+    static public List<User> UserList = new List<User>();
+
+}
