@@ -1,4 +1,11 @@
-# Blazor
+<h1 align=center> Blazor </h1>
+
+<p align=center> 
+<img src="images/Users.png" width=375>
+<img src="images/Registration.png" width=375>
+</p>
+
+<br>
 
 This repository contains a Blazor application created **during my internship**. Blazor is a free and open-source web framework that enables building interactive web applications using C# and .NET.
 
